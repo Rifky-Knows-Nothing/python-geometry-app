@@ -59,6 +59,8 @@ def run_calculator_app():
 
     except ValueError:
         print("Error: Invalid input. Please enter numeric values.")
+        
+    input("\nPress Enter to exit...")
 
 # Main execution block
 if __name__ == "__main__":
