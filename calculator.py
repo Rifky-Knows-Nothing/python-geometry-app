@@ -1,4 +1,6 @@
 # --- Simple Geometry Calculator ---
+import math
+import numpy as np
 
 def calculate_square_area(side):
     """Calculates the area of a square given its side length."""
@@ -9,27 +11,73 @@ def calculate_square_area(side):
 
 def calculate_circle_area(radius):
     """Calculates the area of a circle given its radius."""
-    # We will use a simple pi approximation for this example
-    PI = 3.14159
     if radius < 0:
         return "Error: Radius cannot be negative."
-    return PI * radius * radius
+    return math.pi * radius * radius
+
+def calculate_triangle_area(base, height):
+    """Calculates the area of a triangle given its base and height."""
+    if base < 0 or height < 0:
+        return "Error: Base and height cannot be negative."
+    return 0.5 * base * height
+
+def calculate_ellipse_area(major_axis, minor_axis):
+    """Calculates the area of an ellipse given its major and minor axes."""
+    if major_axis < 0 or minor_axis < 0:
+        return "Error: Major and minor axes cannot be negative."
+    return np.pi * major_axis * minor_axis
+
+def run_calculator_app():
+    """Runs the interactive geometry calculator application."""
+    print("--- Geometry Calculator ---")
+    
+    try:
+        # Get inputs
+        square_side = float(input("Enter the side length of the square: "))
+        circle_radius = float(input("Enter the radius of the circle: "))
+        triangle_base = float(input("Enter the base of the triangle: "))
+        triangle_height = float(input("Enter the height of the triangle: "))
+        ellipse_major = float(input("Enter the major axis of the ellipse: "))
+        ellipse_minor = float(input("Enter the minor axis of the ellipse: "))
+
+        # Calculate results
+        square_result = calculate_square_area(square_side)
+        circle_result = calculate_circle_area(circle_radius)
+        triangle_result = calculate_triangle_area(triangle_base, triangle_height)
+        ellipse_result = calculate_ellipse_area(ellipse_major, ellipse_minor)
+
+        # Print results
+        print(f"\n--- Geometry Calculator Results ---")
+
+        # Format square result
+        if isinstance(square_result, (int, float)):
+            print(f"Area of a square with side {square_side}: {square_result:.2f}")
+        else:
+            print(f"Area of a square with side {square_side}: {square_result}")
+
+        # Format circle result
+        if isinstance(circle_result, (int, float)):
+            print(f"Area of a circle with radius {circle_radius}: {circle_result:.2f}")
+        else:
+            print(f"Area of a circle with radius {circle_radius}: {circle_result}")
+
+        # Format triangle result
+        if isinstance(triangle_result, (int, float)):
+            print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result:.2f}")
+        else:
+            print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result}")
+
+        # Format ellipse result
+        if isinstance(ellipse_result, (int, float)):
+            print(f"Area of an ellipse with major axis {ellipse_major} and minor axis {ellipse_minor}: {ellipse_result:.2f}")
+        else:
+            print(f"Area of an ellipse with major axis {ellipse_major} and minor axis {ellipse_minor}: {ellipse_result}")
+
+    except ValueError:
+        print("Error: Invalid input. Please enter numeric values.")
+    
+    input("\nPress Enter to exit...")
 
 # Main execution block
 if __name__ == "__main__":
-    
-    # Test cases
-    square_side = 5
-    circle_radius = 10
-    
-    # Calculate and print results
-    square_result = calculate_square_area(square_side)
-    circle_result = calculate_circle_area(circle_radius)
-    
-    print(f"--- Geometry Calculator Results ---")
-    print(f"Area of a square with side {square_side}: {square_result}")
-    print(f"Area of a circle with radius {circle_radius}: {circle_result:.2f}") # Format to 2 decimal places
-    
-    # Example of error case
-    error_result = calculate_square_area(-1)
-    print(f"Test case with negative input: {error_result}")
+    run_calculator_app()
