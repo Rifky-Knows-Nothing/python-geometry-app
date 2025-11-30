@@ -23,7 +23,7 @@ def calculate_triangle_area(base, height):
 def run_calculator_app():
     """Runs the interactive geometry calculator application."""
     print("--- Geometry Calculator ---")
-    
+
     try:
         # Get inputs
         square_side = float(input("Enter the side length of the square: "))
@@ -59,8 +59,6 @@ def run_calculator_app():
 
     except ValueError:
         print("Error: Invalid input. Please enter numeric values.")
-    
-    input("\nPress Enter to exit...")
 
 # Main execution block
 if __name__ == "__main__":
