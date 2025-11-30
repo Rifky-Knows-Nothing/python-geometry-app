@@ -20,25 +20,46 @@ def calculate_triangle_area(base, height):
         return "Error: Base and height cannot be negative."
     return 0.5 * base * height
 
+def run_calculator_app():
+    """Runs the interactive geometry calculator application."""
+    print("--- Geometry Calculator ---")
+
+    try:
+        # Get inputs
+        square_side = float(input("Enter the side length of the square: "))
+        circle_radius = float(input("Enter the radius of the circle: "))
+        triangle_base = float(input("Enter the base of the triangle: "))
+        triangle_height = float(input("Enter the height of the triangle: "))
+
+        # Calculate results
+        square_result = calculate_square_area(square_side)
+        circle_result = calculate_circle_area(circle_radius)
+        triangle_result = calculate_triangle_area(triangle_base, triangle_height)
+
+        # Print results
+        print(f"\n--- Geometry Calculator Results ---")
+
+        # Format square result
+        if isinstance(square_result, (int, float)):
+            print(f"Area of a square with side {square_side}: {square_result:.2f}")
+        else:
+            print(f"Area of a square with side {square_side}: {square_result}")
+
+        # Format circle result
+        if isinstance(circle_result, (int, float)):
+            print(f"Area of a circle with radius {circle_radius}: {circle_result:.2f}")
+        else:
+            print(f"Area of a circle with radius {circle_radius}: {circle_result}")
+
+        # Format triangle result
+        if isinstance(triangle_result, (int, float)):
+            print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result:.2f}")
+        else:
+            print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result}")
+
+    except ValueError:
+        print("Error: Invalid input. Please enter numeric values.")
+
 # Main execution block
 if __name__ == "__main__":
-    
-    # Test cases
-    square_side = 5
-    circle_radius = 10
-    triangle_base = 6
-    triangle_height = 4
-    
-    # Calculate and print results
-    square_result = calculate_square_area(square_side)
-    circle_result = calculate_circle_area(circle_radius)
-    triangle_result = calculate_triangle_area(triangle_base, triangle_height)
-    
-    print(f"--- Geometry Calculator Results ---")
-    print(f"Area of a square with side {square_side}: {square_result}")
-    print(f"Area of a circle with radius {circle_radius}: {circle_result:.2f}") # Format to 2 decimal places
-    print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result}")
-    
-    # Example of error case
-    error_result = calculate_square_area(-1)
-    print(f"Test case with negative input: {error_result}")
+    run_calculator_app()
