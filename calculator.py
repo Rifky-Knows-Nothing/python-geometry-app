@@ -78,8 +78,6 @@ def run_calculator_app():
     
     input("\nPress Enter to exit...")
 
-    input("\nPress Enter to exit...")
-
 # Main execution block
 if __name__ == "__main__":
     run_calculator_app()
