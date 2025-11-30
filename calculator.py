@@ -20,12 +20,6 @@ def calculate_triangle_area(base, height):
         return "Error: Base and height cannot be negative."
     return 0.5 * base * height
 
-def calculate_triangle_area(base, height):
-    """Calculates the area of a triangle given its base and height."""
-    if base < 0 or height < 0:
-        return "Error: Base and height cannot be negative."
-    return 0.5 * base * height
-
 # Main execution block
 if __name__ == "__main__":
     
