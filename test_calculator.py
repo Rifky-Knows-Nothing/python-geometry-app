@@ -1,6 +1,7 @@
 import unittest
 import math
-from calculator import calculate_square_area, calculate_circle_area, calculate_triangle_area
+import numpy as np
+from calculator import calculate_square_area, calculate_circle_area, calculate_triangle_area, calculate_ellipse_area
 
 class TestCalculator(unittest.TestCase):
 
@@ -29,6 +30,16 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculate_triangle_area(-1, 5), "Error: Base and height cannot be negative.")
         self.assertEqual(calculate_triangle_area(5, -1), "Error: Base and height cannot be negative.")
         self.assertEqual(calculate_triangle_area(-1, -1), "Error: Base and height cannot be negative.")
+
+    def test_calculate_ellipse_area_valid(self):
+        self.assertAlmostEqual(calculate_ellipse_area(10, 5), np.pi * 50)
+        self.assertEqual(calculate_ellipse_area(0, 5), 0)
+        self.assertEqual(calculate_ellipse_area(5, 0), 0)
+
+    def test_calculate_ellipse_area_invalid(self):
+        self.assertEqual(calculate_ellipse_area(-1, 5), "Error: Major and minor axes cannot be negative.")
+        self.assertEqual(calculate_ellipse_area(5, -1), "Error: Major and minor axes cannot be negative.")
+        self.assertEqual(calculate_ellipse_area(-1, -1), "Error: Major and minor axes cannot be negative.")
 
 if __name__ == '__main__':
     unittest.main()

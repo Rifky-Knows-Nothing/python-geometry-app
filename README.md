@@ -7,6 +7,7 @@ A simple Python-based geometry calculator that can calculate the area of various
 - **Square Area**: Calculates the area of a square given the side length.
 - **Circle Area**: Calculates the area of a circle given the radius (uses `math.pi` for precision).
 - **Triangle Area**: Calculates the area of a triangle given the base and height.
+- **Ellipse Area**: Calculates the area of an ellipse given the major and minor axes (uses `numpy.pi` for precision).
 
 Includes error handling for negative inputs.
 

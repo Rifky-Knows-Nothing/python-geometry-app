@@ -1,5 +1,6 @@
 # --- Simple Geometry Calculator ---
 import math
+import numpy as np
 
 def calculate_square_area(side):
     """Calculates the area of a square given its side length."""
@@ -20,21 +21,30 @@ def calculate_triangle_area(base, height):
         return "Error: Base and height cannot be negative."
     return 0.5 * base * height
 
+def calculate_ellipse_area(major_axis, minor_axis):
+    """Calculates the area of an ellipse given its major and minor axes."""
+    if major_axis < 0 or minor_axis < 0:
+        return "Error: Major and minor axes cannot be negative."
+    return np.pi * major_axis * minor_axis
+
 def run_calculator_app():
     """Runs the interactive geometry calculator application."""
     print("--- Geometry Calculator ---")
-
+    
     try:
         # Get inputs
         square_side = float(input("Enter the side length of the square: "))
         circle_radius = float(input("Enter the radius of the circle: "))
         triangle_base = float(input("Enter the base of the triangle: "))
         triangle_height = float(input("Enter the height of the triangle: "))
+        ellipse_major = float(input("Enter the major axis of the ellipse: "))
+        ellipse_minor = float(input("Enter the minor axis of the ellipse: "))
 
         # Calculate results
         square_result = calculate_square_area(square_side)
         circle_result = calculate_circle_area(circle_radius)
         triangle_result = calculate_triangle_area(triangle_base, triangle_height)
+        ellipse_result = calculate_ellipse_area(ellipse_major, ellipse_minor)
 
         # Print results
         print(f"\n--- Geometry Calculator Results ---")
@@ -57,8 +67,16 @@ def run_calculator_app():
         else:
             print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result}")
 
+        # Format ellipse result
+        if isinstance(ellipse_result, (int, float)):
+            print(f"Area of an ellipse with major axis {ellipse_major} and minor axis {ellipse_minor}: {ellipse_result:.2f}")
+        else:
+            print(f"Area of an ellipse with major axis {ellipse_major} and minor axis {ellipse_minor}: {ellipse_result}")
+
     except ValueError:
         print("Error: Invalid input. Please enter numeric values.")
+    
+    input("\nPress Enter to exit...")
 
     input("\nPress Enter to exit...")
 
