@@ -15,20 +15,30 @@ def calculate_circle_area(radius):
         return "Error: Radius cannot be negative."
     return PI * radius * radius
 
+def calculate_triangle_area(base, height):
+    """Calculates the area of a triangle given its base and height."""
+    if base < 0 or height < 0:
+        return "Error: Base and height cannot be negative."
+    return 0.5 * base * height
+
 # Main execution block
 if __name__ == "__main__":
     
     # Test cases
     square_side = 5
     circle_radius = 10
+    triangle_base = 6
+    triangle_height = 4
     
     # Calculate and print results
     square_result = calculate_square_area(square_side)
     circle_result = calculate_circle_area(circle_radius)
+    triangle_result = calculate_triangle_area(triangle_base, triangle_height)
     
     print(f"--- Geometry Calculator Results ---")
     print(f"Area of a square with side {square_side}: {square_result}")
     print(f"Area of a circle with radius {circle_radius}: {circle_result:.2f}") # Format to 2 decimal places
+    print(f"Area of a triangle with base {triangle_base} and height {triangle_height}: {triangle_result}")
     
     # Example of error case
     error_result = calculate_square_area(-1)
