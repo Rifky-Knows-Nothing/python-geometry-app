@@ -1,4 +1,5 @@
 # --- Simple Geometry Calculator ---
+import math
 
 def calculate_square_area(side):
     """Calculates the area of a square given its side length."""
@@ -9,11 +10,15 @@ def calculate_square_area(side):
 
 def calculate_circle_area(radius):
     """Calculates the area of a circle given its radius."""
-    # We will use a simple pi approximation for this example
-    PI = 3.14159
     if radius < 0:
         return "Error: Radius cannot be negative."
-    return PI * radius * radius
+    return math.pi * radius * radius
+
+def calculate_triangle_area(base, height):
+    """Calculates the area of a triangle given its base and height."""
+    if base < 0 or height < 0:
+        return "Error: Base and height cannot be negative."
+    return 0.5 * base * height
 
 def calculate_triangle_area(base, height):
     """Calculates the area of a triangle given its base and height."""
